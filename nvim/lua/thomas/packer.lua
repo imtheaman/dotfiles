@@ -12,7 +12,6 @@ return require('packer').startup(function(use)
 	use({
 		'rose-pine/neovim',
 		as = 'rose-pine',
-		config = function() vim.cmd('colorscheme rose-pine') end
 	})
 	use {
 		"nvim-treesitter/nvim-treesitter",
@@ -64,10 +63,19 @@ return require('packer').startup(function(use)
         end,
     })
     -- use("airblade/vim-gitgutter")
-    use("hsanson/vim-android")
-    use("dense-analysis/ale")
+    use("lewis6991/gitsigns.nvim")
+    use("rhysd/conflict-marker.vim")
+    use("sindrets/diffview.nvim")
     use('nvim-lualine/lualine.nvim')
     use {"akinsho/toggleterm.nvim", tag = '*', config = function()
         require("toggleterm").setup()
     end}
+    use {
+        "windwp/nvim-autopairs",
+        config = function() require("nvim-autopairs").setup {} end
+    }
+    use("rebelot/kanagawa.nvim")
+    use { 'kartikp10/noctis.nvim', requires = { 'rktjmp/lush.nvim' } }
+    use('rockerBOO/boo-colorscheme-nvim')
+    use{'preservim/nerdtree'}
 end)
