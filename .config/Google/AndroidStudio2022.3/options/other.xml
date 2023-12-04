@@ -1,0 +1,187 @@
+<application>
+  <component name="FileEditorProviderManager">{
+  &quot;selectedProviders&quot;: {
+    &quot;text-editor,android-manifest&quot;: &quot;text-editor&quot;
+  }
+}</component>
+  <component name="LiveEditConfiguration">
+    <option name="leTriggerMode" value="LE_TRIGGER_AUTOMATIC" />
+    <option name="mode" value="LIVE_EDIT" />
+  </component>
+  <component name="NotRoamableUiSettings">
+    <option name="fontScale" value="1.5" />
+    <option name="fontSize" value="19.0" />
+  </component>
+  <component name="PropertyService"><![CDATA[{
+  "keyToString": {
+    "AFTER.DISTRACTION.MODE.ARE_GUTTER_ICONS_SHOWN": "false",
+    "AFTER.DISTRACTION.MODE.ARE_LINE_NUMBERS_SHOWN": "false",
+    "AFTER.DISTRACTION.MODE.EDITOR_TAB_PLACEMENT": "0",
+    "AFTER.DISTRACTION.MODE.HIDE_TOOL_STRIPES": "true",
+    "AFTER.DISTRACTION.MODE.IS_FOLDING_OUTLINE_SHOWN": "false",
+    "AFTER.DISTRACTION.MODE.IS_INDENT_GUIDES_SHOWN": "false",
+    "AFTER.DISTRACTION.MODE.IS_RIGHT_MARGIN_SHOWN": "false",
+    "AFTER.DISTRACTION.MODE.IS_WHITESPACES_SHOWN": "false",
+    "AFTER.DISTRACTION.MODE.SHOW_BREADCRUMBS": "false",
+    "AFTER.DISTRACTION.MODE.SHOW_MAIN_TOOLBAR": "true",
+    "AFTER.DISTRACTION.MODE.SHOW_METHOD_SEPARATORS": "false",
+    "AFTER.DISTRACTION.MODE.SHOW_NAVIGATION_BAR": "false",
+    "AFTER.DISTRACTION.MODE.SHOW_NEW_MAIN_TOOLBAR": "false",
+    "AFTER.DISTRACTION.MODE.SHOW_STATUS_BAR": "false",
+    "ATTACHED_TOOL_WINDOW.Compose Preview.TOOL_ORDER": "",
+    "ATTACHED_TOOL_WINDOW.DEFAULT.Compose Preview.TOOL_ORDER": "",
+    "ATTACHED_TOOL_WINDOW.DEFAULT.NELE_EDITOR.COMPONENT_TREE.FULL.AUTO_HIDE": "false",
+    "ATTACHED_TOOL_WINDOW.DEFAULT.NELE_EDITOR.COMPONENT_TREE.FULL.LEFT": "true",
+    "ATTACHED_TOOL_WINDOW.DEFAULT.NELE_EDITOR.COMPONENT_TREE.FULL.MINIMIZED": "false",
+    "ATTACHED_TOOL_WINDOW.DEFAULT.NELE_EDITOR.COMPONENT_TREE.FULL.SPLIT": "true",
+    "ATTACHED_TOOL_WINDOW.DEFAULT.NELE_EDITOR.PALETTE.FULL.AUTO_HIDE": "false",
+    "ATTACHED_TOOL_WINDOW.DEFAULT.NELE_EDITOR.PALETTE.FULL.LEFT": "true",
+    "ATTACHED_TOOL_WINDOW.DEFAULT.NELE_EDITOR.PALETTE.FULL.MINIMIZED": "false",
+    "ATTACHED_TOOL_WINDOW.DEFAULT.NELE_EDITOR.PALETTE.FULL.SPLIT": "false",
+    "ATTACHED_TOOL_WINDOW.DEFAULT.NELE_EDITOR.PROPERTIES.FULL.AUTO_HIDE": "false",
+    "ATTACHED_TOOL_WINDOW.DEFAULT.NELE_EDITOR.PROPERTIES.FULL.LEFT": "false",
+    "ATTACHED_TOOL_WINDOW.DEFAULT.NELE_EDITOR.PROPERTIES.FULL.MINIMIZED": "false",
+    "ATTACHED_TOOL_WINDOW.DEFAULT.NELE_EDITOR.PROPERTIES.FULL.SPLIT": "false",
+    "ATTACHED_TOOL_WINDOW.DEFAULT.NELE_EDITOR.TOOL_ORDER": "PALETTE,PROPERTIES,COMPONENT_TREE",
+    "ATTACHED_TOOL_WINDOW.NELE_EDITOR.COMPONENT_TREE.FULL.LEFT": "true",
+    "ATTACHED_TOOL_WINDOW.NELE_EDITOR.COMPONENT_TREE.FULL.MINIMIZED": "true",
+    "ATTACHED_TOOL_WINDOW.NELE_EDITOR.COMPONENT_TREE.FULL.SPLIT": "true",
+    "ATTACHED_TOOL_WINDOW.NELE_EDITOR.PALETTE.FULL.LEFT": "true",
+    "ATTACHED_TOOL_WINDOW.NELE_EDITOR.PALETTE.FULL.MINIMIZED": "true",
+    "ATTACHED_TOOL_WINDOW.NELE_EDITOR.PROPERTIES.FULL.MINIMIZED": "true",
+    "ATTACHED_TOOL_WINDOW.NELE_EDITOR.TOOL_ORDER": "PALETTE,PROPERTIES,COMPONENT_TREE",
+    "BEFORE.DISTRACTION.MODE.ARE_GUTTER_ICONS_SHOWN": "true",
+    "BEFORE.DISTRACTION.MODE.ARE_LINE_NUMBERS_SHOWN": "true",
+    "BEFORE.DISTRACTION.MODE.EDITOR_TAB_PLACEMENT": "1",
+    "BEFORE.DISTRACTION.MODE.HIDE_TOOL_STRIPES": "false",
+    "BEFORE.DISTRACTION.MODE.IS_FOLDING_OUTLINE_SHOWN": "true",
+    "BEFORE.DISTRACTION.MODE.IS_INDENT_GUIDES_SHOWN": "true",
+    "BEFORE.DISTRACTION.MODE.IS_RIGHT_MARGIN_SHOWN": "true",
+    "BEFORE.DISTRACTION.MODE.IS_WHITESPACES_SHOWN": "false",
+    "BEFORE.DISTRACTION.MODE.SHOW_BREADCRUMBS": "true",
+    "BEFORE.DISTRACTION.MODE.SHOW_MAIN_TOOLBAR": "true",
+    "BEFORE.DISTRACTION.MODE.SHOW_METHOD_SEPARATORS": "false",
+    "BEFORE.DISTRACTION.MODE.SHOW_NAVIGATION_BAR": "false",
+    "BEFORE.DISTRACTION.MODE.SHOW_NEW_MAIN_TOOLBAR": "false",
+    "BEFORE.DISTRACTION.MODE.SHOW_STATUS_BAR": "true",
+    "BuildView.Splitter.Proportion": "0.34723017",
+    "CommitToolWindow.COMMIT_SPLITTER_PROPORTION": "0.7079304",
+    "DesignLayout": "Editor only",
+    "ExpandBeforeRunStepsPanel": "true",
+    "FileChooser.ShowPath": "true",
+    "FileTemplates.SelectedTemplate": "HTML File",
+    "IdeErrorsDialog.LAST_OK_ACTION": "REPORT_AND_CLEAR_ALL",
+    "InstalledPluginsSearchHistory": "ideavim\nideavi\nideav\nidea\nide",
+    "KEYMAP": "Alt+1",
+    "LayoutCode.codeCleanup": "true",
+    "LayoutCode.optimizeImports": "true",
+    "LayoutCode.processChangedText": "false",
+    "LayoutCode.rearrangeEntriesJava": "false",
+    "LayoutCode.rearrangeEntriesKotlin": "false",
+    "MarketplacePluginsSearchHistory": "/tag:Theme\ntheme\nmarkdown\nmark\nvim",
+    "MemberChooser.copyJavadoc": "false",
+    "MemberChooser.showClasses": "true",
+    "MobileminApi": "16",
+    "NextRunPlatformUpdateBuild": "AI-231.9392.1.2311.11076708",
+    "NextRunPlatformUpdateVersion": "Hedgehog | 2023.1.1",
+    "NonModalCommitCustomization.IsApplied": "true",
+    "PROJECT_STRUCTURE_NOTIFICATION_LAST_HIDDEN_TIMESTAMP": "1699974719477",
+    "PluginConfigurable.selectionTab": "1",
+    "RunOnceActivity.cidr.test.framework.showIndexingAsTask": "true",
+    "RunOnceActivity.se.text.search": "true",
+    "SAVED_ANDROID_NPW_ASKED_LANGUAGE": "true",
+    "SAVED_ANDROID_NPW_LANGUAGE": "Kotlin",
+    "SAVED_ANDROID_PACKAGE": "com.delhivery",
+    "SAVED_BYTECODE_LEVEL": "8 (slower build)",
+    "Source Code Editor With PreviewLayout": "Editor only",
+    "TextEditorWithPreview.SplitterProportionKey": "0.7225853",
+    "android.sdk.path": "/home/thomas/Android/Sdk",
+    "appcds.runOnSecondStart": "AI-223.8836.35.2231.11090377-fdcbbb2628a2270ecb96c0cfc69a78236c8e4e0804b4236d7a22c6129b7e1a71",
+    "ask.about.ctrl.y.shortcut.v2": "true",
+    "build.toolwindow.Build Output.selection.state": "com.intellij.build.BuildTreeConsoleView",
+    "build.toolwindow.Sync.selection.state": "com.intellij.build.BuildTreeConsoleView",
+    "build.toolwindow.show.successful.steps.selection.state": "true",
+    "bundled.plugins.list.saved.version": "AI-223.8836.35.2231.11090377",
+    "decompiler.legal.notice.accepted": "true",
+    "defaultJdkConfigured": "true",
+    "file.gist.reindex.count": "26",
+    "fileTypeChangedCounter": "3",
+    "fontSizeToResetConsole": "19.5",
+    "fontSizeToResetEditor": "19.5",
+    "got.it.tooltip.filter.tip": "1",
+    "got.it.tooltip.reader.mode.got.it": "1",
+    "got.it.tooltip.terminal.smart_command_execution": "1",
+    "gotit.previous.run": "AI-223.8836.35.2231.10811636",
+    "ideavim.statistics.timestamp": "1701708360123",
+    "input.method.disabler.muted": "true",
+    "installed.kotlin.plugin.version": "223-1.9.0-release-358-AS8836.35.2231.11090377",
+    "kotlin.lastUpdateCheck": "1701023018448",
+    "kotlin.updates.whats.new.shown.for": "1.9.0",
+    "last.used.gradle.home": "/opt/gradle-8.4",
+    "last_opened_file_path": "/usr/share/backgrounds/3_bhk_independent_builder_floor-for-rent-ashok_nagar_ranchi-Ranchi-bedroom.jpg.webp",
+    "mt.autoReset": "true",
+    "mt.showInstallAtom": "true",
+    "mt.showStatisticsAgreement": "true",
+    "newly.installed.api.level": "33",
+    "org.intellij.images.editor.actions.BackgroundImageDialog#recent": "/usr/share/backgrounds/3_bhk_independent_builder_floor-for-rent-ashok_nagar_ranchi-Ranchi-bedroom.jpg.webp",
+    "previousColorScheme": "_@user_Xcode Dark",
+    "registry.to.advanced.settings.migration.build": "AI-223.8836.35.2231.11090377",
+    "tasks.pass.word.conversion.enforced": "true"
+  },
+  "keyToStringList": {
+    "file.chooser.recent.files": [
+      "/home/thomas/aosp-telephony",
+      "/home/thomas/android_frameworks_base",
+      "/home/thomas/interview",
+      "/home/thomas/Simple-SMS-Messenger",
+      "/home/thomas/android/lineage/frameworks",
+      "/home/thomas/ideas/target",
+      "/home/thomas/ideas",
+      "/home/thomas/target/apitest.java",
+      "/home/thomas/target",
+      "/opt/gradle-8.4",
+      "/home/thomas/DelhiveryAdmin",
+      "/home/thomas/android/lineage/frameworks/opt/telephony",
+      "/home/thomas/android/lineage/frameworks/base/telephony",
+      "/home/thomas/Defaultsmsapp",
+      "/home/thomas/aosp/frameworks/base/telephony",
+      "/home/thomas/aosp/frameworks/opt/telephony",
+      "/home/thomas/aosp",
+      "/home/thomas/aosp/frameworks/base/core/java/android/os",
+      "/home/thomas/aosp/frameworks/base",
+      "/usr/share/backgrounds/3_bhk_independent_builder_floor-for-rent-ashok_nagar_ranchi-Ranchi-bedroom.jpg.webp",
+      "/opt/gradle-8.4/bin",
+      "/usr/share/java/gradle/bin",
+      "/home/thomas/.gradle",
+      "/usr",
+      "/usr/bin",
+      "/home/thomas/Delhivery"
+    ],
+    "fileTypeDetectors": [
+      "com.intellij.ide.scratch.ScratchFileServiceImpl$Detector",
+      "com.jetbrains.cidr.lang.OCHeaderFileTypeDetector",
+      "com.android.tools.idea.sqlite.fileType.SqliteFileTypeDetector",
+      "com.android.tools.idea.profilers.capture.MemoryCaptureFileType$Detector",
+      "org.jetbrains.plugins.textmate.TextMateFileType$TextMateFileDetector"
+    ],
+    "kotlin-gradle-user-dirs": [
+      "/home/thomas/.gradle",
+      "/opt/gradle-8.4"
+    ]
+  }
+}]]></component>
+  <component name="ShownTips">{
+  &quot;shownTips&quot;: {
+    &quot;InjectSQLLanguage&quot;: 1698343266634,
+    &quot;Kotlin_mix&quot;: 1698345539488,
+    &quot;Kotlin_Java_convert&quot;: 1698343258474,
+    &quot;Kotlin_project&quot;: 1698343245445
+  }
+}</component>
+  <component name="TerminalCommandHistoryManager">
+    <command-history-files>
+      <command-history-file filename="Delhivery Admin-history" project-path="$USER_HOME$/DelhiveryAdmin" last-access-time="1700253906578" />
+      <command-history-file filename="Delhivery-history" project-path="$USER_HOME$/Delhivery" last-access-time="1700315090364" />
+    </command-history-files>
+  </component>
+</application>
