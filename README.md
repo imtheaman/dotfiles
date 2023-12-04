@@ -10,4 +10,10 @@ add 'em to ~/AppData/nvim dir on windows and respective ~/.config/nvim dir in li
 # i3
 add .i3 to ~/
 
+# etc/
+add 'em to /etc dir
+
+# AndroidStudio configs
+add 'em to ~/.config/Google/AndroidStuido[version]
+
 add other dotfiles directly to ~/ directory
