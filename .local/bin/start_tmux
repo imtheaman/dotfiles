@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# Name of the tmux session
+session_name="default"
+
+# Check if tmux is already running
+if command -v tmux &> /dev/null; then
+  # Attempt to attach to the last active session
+  if tmux attach-session -t $session_name 2> /dev/null; then
+    exit 0  # Successfully attached, exit the script
+  fi
+
+  # If attaching to the last session failed, create a new one
+  tmux new-session -s $session_name
+else
+  # Start tmux if not running
+  tmux new-session -s $session_name
+fi
