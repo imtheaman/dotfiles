@@ -1,0 +1,128 @@
+# React Functional Component
+snippet "rfc" "React Functional Component"
+import React from 'react';
+
+const ${1:ComponentName} = () => {
+  return (
+    <div>
+      ${2:Content}
+    </div>
+  );
+};
+
+export default ${1:ComponentName};
+
+# React Functional Component (Arrow Function)
+snippet "rfa" "React Functional Component (Arrow Function)"
+const ${1:ComponentName} = () => (
+  <div>
+    ${2:Content}
+  </div>
+);
+
+export default ${1:ComponentName};
+
+# React Class Component
+snippet "rcc" "React Class Component"
+import React, { Component } from 'react';
+
+class ${1:ComponentName} extends Component {
+  render() {
+    return (
+      <div>
+        ${2:Content}
+      </div>
+    );
+  }
+}
+
+export default ${1:ComponentName};
+
+# React useState Hook
+snippet "ust" "React useState Hook"
+const [${1:state}, set${1/./\u&/}] = React.useState(${2:initialValue});
+
+# React useEffect Hook
+snippet "uef" "React useEffect Hook"
+React.useEffect(() => {
+  // Effect code
+}, [${1:dependency}]);
+
+# React useMemo Hook
+snippet "umo" "React useMemo Hook"
+const ${1:memorizedValue} = React.useMemo(() => {
+  return ${2:computeExpensiveValue};
+}, [${3:dependency}]);
+
+# React useCallback Hook
+snippet "uca" "React useCallback Hook"
+const ${1:callback} = React.useCallback(() => {
+  // Callback code
+}, [${2:dependency}]);
+
+# React Redux mapStateToProps
+snippet "ms2p" "React Redux mapStateToProps"
+const mapStateToProps = (state) => {
+  return {
+    ${1:propName}: state.${2:reducer}.${3:stateProp}
+  };
+};
+
+# React Redux mapDispatchToProps
+snippet "md2p" "React Redux mapDispatchToProps"
+const mapDispatchToProps = (dispatch) => {
+  return {
+    ${1:actionName}: () => dispatch(${2:actionCreator}(${3:payload}))
+  };
+};
+
+# React-Redux useSelector
+snippet "usr" "React-Redux useSelector"
+const ${1:selectorValue} = useSelector((state) => state.${2:reducer}.${3:stateProp});
+
+# React-Redux useDispatch
+snippet "usd" "React-Redux useDispatch"
+const dispatch = useDispatch();
+
+# Redux Toolkit createSlice
+snippet "rtslice" "Redux Toolkit createSlice"
+import { createSlice } from '@reduxjs/toolkit';
+
+const ${1:sliceName} = createSlice({
+  name: '${2:sliceName}',
+  initialState: ${3:initialState},
+  reducers: {
+    ${4:reducerName}: (state, action) => {
+      // Reducer logic
+    },
+  },
+});
+
+export const { ${5:reducerName} } = ${1:sliceName}.actions;
+export default ${1:sliceName}.reducer;
+
+# React Query useQuery
+snippet "rqquery" "React Query useQuery"
+import { useQuery } from 'react-query';
+
+const { data, error, isLoading } = useQuery('${1:queryKey}', async () => {
+  const response = await fetch('${2:endpoint}');
+  const data = await response.json();
+  return data;
+});
+
+# React Query useMutation
+snippet "rqmutate" "React Query useMutation"
+import { useMutation } from 'react-query';
+
+const { mutate, isLoading } = useMutation(async (${1:payload}) => {
+  const response = await fetch('${2:endpoint}', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(${1:payload}),
+  });
+  const data = await response.json();
+  return data;
+});

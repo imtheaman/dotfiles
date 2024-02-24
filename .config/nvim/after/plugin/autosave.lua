@@ -25,3 +25,4 @@ require("auto-save").setup({
     write_all_buffers = true, -- write all buffers when the current one meets `condition`
     debounce_delay = 5000, -- saves the file at most every `debounce_delay` milliseconds
 })
+

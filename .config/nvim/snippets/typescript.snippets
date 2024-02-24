@@ -1,0 +1,50 @@
+# TypeScript Interface
+snippet "tsi" "TypeScript Interface"
+interface ${1:InterfaceName} {
+  ${2:propertyName}: ${3:propertyType};
+}
+
+# TypeScript Type
+snippet "tst" "TypeScript Type"
+type ${1:TypeName} = ${2:TypeDefinition};
+
+# TypeScript Enum
+snippet "tse" "TypeScript Enum"
+enum ${1:EnumName} {
+  ${2:EnumValue1},
+  ${3:EnumValue2},
+}
+
+# TypeScript Function
+snippet "tsf" "TypeScript Function"
+function ${1:functionName}(${2:parameters}): ${3:returnType} {
+  ${4:// function body}
+}
+
+# TypeScript Arrow Function
+snippet "tsaf" "TypeScript Arrow Function"
+const ${1:functionName} = (${2:parameters}): ${3:returnType} => {
+  ${4:// function body}
+};
+
+# TypeScript Class
+snippet "tsc" "TypeScript Class"
+class ${1:ClassName} {
+  ${2:constructor(parameters) {
+    // constructor body
+  }}
+  
+  ${3:method1() {
+    // method body
+  }}
+
+  ${4:property1: ${5:propertyType};}
+}
+
+# TypeScript Import
+snippet "tsimport" "TypeScript Import"
+import ${1:ModuleName} from '${2:module-path}';
+
+# TypeScript Export
+snippet "tsexport" "TypeScript Export"
+export ${1:default} ${2:exportedItem} from '${3:module-path}';

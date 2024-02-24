@@ -1,0 +1,54 @@
+# HTML5 Document
+snippet "html5" "HTML5 Document"
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>${1:Document Title}</title>
+</head>
+<body>
+  ${2:Content}
+</body>
+</html>
+
+# HTML Head Section
+snippet "head" "HTML Head Section"
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>${1:Page Title}</title>
+  ${2:<!-- Additional head content -->}
+</head>
+
+# HTML Link Tag
+snippet "link" "HTML Link Tag"
+<link rel="${1:stylesheet}" href="${2:path/to/stylesheet.css}">
+
+# HTML Script Tag
+snippet "script" "HTML Script Tag"
+<script src="${1:path/to/script.js}"></script>
+
+# HTML Div Element
+snippet "div" "HTML Div Element"
+<div${1:id=""}${2:class=""}>
+  ${3:Content}
+</div>
+
+# HTML Span Element
+snippet "span" "HTML Span Element"
+<span${1:id=""}${2:class=""}>
+  ${3:Content}
+</span>
+
+# HTML Image Tag
+snippet "img" "HTML Image Tag"
+<img src="${1:path/to/image.jpg}" alt="${2:Alt Text}"${3: width="${4:width}" height="${5:height}"}>
+
+# HTML Anchor Tag
+snippet "a" "HTML Anchor Tag"
+<a href="${1:#}"${2: target="${3:_blank}"}>${4:Link Text}</a>
+
+# HTML Input Tag
+snippet "input" "HTML Input Tag"
+<input type="${1:text}" name="${2:fieldName}" id="${3:fieldId}"${4: value="${5:}"}${6: placeholder="${7:}"}>

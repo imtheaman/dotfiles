@@ -1,0 +1,66 @@
+# JavaScript Function with JSDoc
+snippet "jsf" "JavaScript Function with JSDoc"
+/**
+ * ${1:function description}
+ * @param {${2:parameterType}} ${3:parameterName} - ${4:parameter description}
+ * @returns {${5:returnType}} - ${6:return description}
+ */
+function ${7:functionName}(${8:parameters}) {
+  ${9:// function body}
+}
+
+# JavaScript Arrow Function with JSDoc
+snippet "jsaf" "JavaScript Arrow Function with JSDoc"
+/**
+ * ${1:function description}
+ * @param {${2:parameterType}} ${3:parameterName} - ${4:parameter description}
+ * @returns {${5:returnType}} - ${6:return description}
+ */
+const ${7:functionName} = (${8:parameters}) => {
+  ${9:// function body}
+};
+
+# JavaScript Class with JSDoc
+snippet "jsc" "JavaScript Class with JSDoc"
+/**
+ * ${1:Class description}
+ */
+class ${2:ClassName} {
+  /**
+   * Constructor description
+   * @param {${3:parameterType}} ${4:parameterName} - ${5:parameter description}
+   */
+  constructor(${6:parameters}) {
+    // constructor body
+  }
+
+  /**
+   * Method description
+   * @returns {${7:returnType}} - ${8:return description}
+   */
+  ${9:method1() {
+    // method body
+  }}
+
+  /**
+   * Property description
+   * @type {${10:propertyType}}
+   */
+  ${11:property1;}
+}
+
+# JavaScript Import with JSDoc
+snippet "jsimport" "JavaScript Import with JSDoc"
+/**
+ * ${1:Module description}
+ * @type {${2:ModuleType}}
+ */
+import ${3:ModuleName} from '${4:module-path}';
+
+# JavaScript Export with JSDoc
+snippet "jsexport" "JavaScript Export with JSDoc"
+/**
+ * ${1:Export description}
+ * @type {${2:ExportType}}
+ */
+export ${3:default} ${4:exportedItem} from '${5:module-path}';
