@@ -70,7 +70,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions)
+plugins=(git zsh-autosuggestions git-lfs node git-extras github gradle history httpie iterm2 jenv macos ngrok nmap npm nvm pm2 pod podman postgres pre-commit rails react-native rsync ruby spring ssh timer web-search yarn)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -104,6 +104,7 @@ alias ll="ls -a"
 alias nconf="nvim ~/.config/nvim"
 alias zconf="nvim ~/.zshrc"
 alias tconf="nvim ~/.tmux.conf"
+alias claudeconf="nvim ~/Library/\"Application Support\"/Claude/claude_desktop_config.json"
 alias ga="git add ."
 alias gs="git status"
 alias gd="git diff"
@@ -119,16 +120,28 @@ bindkey -s ^f "tmux-sessionizer\n"
 export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 
 # bun completions
-[ -s "/Users/a_man/.bun/_bun" ] && source "/Users/a_man/.bun/_bun"
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
+export MEMORY_FILE_PATH="$HOME/memory.json"
 export PATH="$BUN_INSTALL/bin:$PATH"
-export DPRINT_INSTALL="/Users/a_man/.dprint"
+export DPRINT_INSTALL="$HOME/.dprint"
 export PATH="$DPRINT_INSTALL/bin:$PATH"
 ___MY_VMOPTIONS_SHELL_FILE="${HOME}/.jetbrains.vmoptions.sh"; if [ -f "${___MY_VMOPTIONS_SHELL_FILE}" ]; then . "${___MY_VMOPTIONS_SHELL_FILE}"; fi
 export PATH="$HOME/.rbenv/shims:$PATH"
 export ANDROID_HOME="$HOME/Library/Android/sdk/"
+export GEMINI_API_KEY="AIzaSyDEplQaZJh9xoDNesUzNyFJB9hzb8xS1gM"
 export PATH=$PATH:$ANDROID_HOME/emulator:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-tools
 export PATH="/opt/homebrew/opt/openssl@1.0/bin:$PATH"
 export PATH="/opt/homebrew/opt/swift/bin:$PATH"
+export PATH="/opt/homebrew/opt/rustup/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/personal/scripts:$PATH"
+export DOCKERHOST="$(ifconfig en0 inet 2>/dev/null | awk '{ if ( $1 == "inet" ) print $2 }' )"
+export NVM_DIR="$HOME/.nvm"
+  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+eval "$(rbenv init - zsh)"
+source $(brew --prefix asdf)/libexec/asdf.sh
+source ~/.qop.sh

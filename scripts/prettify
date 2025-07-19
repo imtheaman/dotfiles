@@ -1,0 +1,60 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Usage function
+print_help() {
+  cat <<EOF
+Usage: $(basename "$0") [--help]
+
+Prettify all staged files with extensions:
+  js, jsx, ts, tsx, css, scss, json, md, html
+
+How it works:
+  - Finds all staged files matching these extensions
+  - Formats them with Prettier
+  - Re-stages the formatted files
+
+Examples:
+  $ ./format-staged.sh
+  $ git commit -m "feat: some changes"  # after formatting
+
+Options:
+  -h, --help   Show this help message and exit
+EOF
+}
+
+# Check for help flag
+if [[ "${1:-}" == "--help" || "${1:-}" == "-h" ]]; then
+  print_help
+  exit 0
+fi
+
+# Get git root
+GIT_ROOT=$(git rev-parse --show-toplevel)
+
+# Find staged files
+FILES=$(git diff --cached --name-only --diff-filter=ACMR | grep -E '\.(js|jsx|ts|tsx|json|md|html)$' || true)
+
+if [ -z "$FILES" ]; then
+  echo "✅ No staged files to format."
+  exit 0
+fi
+
+echo "🔍 Staged files to format:"
+echo "$FILES"
+echo
+
+# Format & re-stage
+echo "$FILES" | while IFS= read -r file; do
+  full_path="$GIT_ROOT/$file"
+
+  if [ -f "$full_path" ]; then
+    echo "✨ Formatting: $file"
+    npx prettier --write "$full_path"
+    git add "$file"
+  else
+    echo "⚠️  Skipping (not found): $file"
+  fi
+done
+
+echo "✅ Prettier formatting complete. Files updated and re-staged."

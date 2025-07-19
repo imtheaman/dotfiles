@@ -1,0 +1,81 @@
+#!/usr/bin/env node
+
+import { spawn } from 'child_process';
+import fs from 'fs';
+
+// Get CLI args
+const [, , ...args] = process.argv;
+
+// Handle --help or -h
+if (args.length === 0 || args[0] === '--help' || args[0] === '-h') {
+  console.log(`
+Usage: nodelogger <command> [args...]
+
+Runs any command, saves its output to a log file, and shows it in less when done.
+
+How it works:
+  - Runs the given command with its arguments.
+  - Logs stdout and stderr to a file: <command>_<args>.log
+  - Kills the command if it is idle for 60 seconds.
+  - Opens the log file with 'less' when done.
+
+Examples:
+  nodelogger yarn test
+  nodelogger node script.js foo bar
+
+Options:
+  -h, --help   Show this help message and exit.
+`);
+  process.exit(0);
+}
+
+const [command, ...commandArgs] = args;
+
+// Safe log name
+let command_str = '';
+const safeParts = args.map((p, i) => {
+  i === 0 ? command_str += `Running ${command} ` : command_str += p + ' ';
+  return p.replace(/[^a-zA-Z0-9._-]/g, '_');
+});
+command_str += '...';
+
+const logFileName = `${safeParts.join('_')}.log`;
+
+const out = fs.createWriteStream(logFileName, { flags: 'w' });
+out.write(`=== Run started at ${new Date().toISOString()} ===\n\n`);
+
+console.info(command_str);
+
+// Spawn with no stdin — prevents hanging prompts
+const child = spawn(command, commandArgs, { stdio: ['ignore', 'pipe', 'pipe'] });
+
+child.stdout.pipe(out);
+child.stderr.pipe(out);
+
+// === SMART IDLE TIMEOUT ===
+// If there is NO output for X ms, kill the process
+const IDLE_TIMEOUT = 60 * 1000; // 60 seconds idle
+let idleTimer = null;
+
+function resetIdleTimer() {
+  clearTimeout(idleTimer);
+  idleTimer = setTimeout(() => {
+    console.warn(`\nNo output for ${IDLE_TIMEOUT / 1000}s. Killing process.`);
+    out.write(`\n=== Process killed due to ${IDLE_TIMEOUT / 1000}s idle ===\n`);
+    child.kill('SIGTERM');
+  }, IDLE_TIMEOUT);
+}
+
+child.stdout.on('data', resetIdleTimer);
+child.stderr.on('data', resetIdleTimer);
+
+// Start the idle timer immediately
+resetIdleTimer();
+
+// When done
+child.on('close', (code) => {
+  clearTimeout(idleTimer);
+  console.log(`\nProcess exited with code ${code}. Opening log: ${logFileName}`);
+  const less = spawn('less', [logFileName], { stdio: 'inherit' });
+  less.on('exit', (code) => process.exit(code));
+});

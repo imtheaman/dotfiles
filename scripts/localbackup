@@ -1,0 +1,154 @@
+#!/bin/bash
+
+################################################################################
+# 🧠 Git-aware Backup Script with CLI, .gitignore Support, and Cron Integration
+#
+# ✅ Features:
+# - Backups a source directory to a destination using rsync
+# - Excludes paths in `.gitignore`
+# - Accepts CLI args (no hardcoding)
+# - Auto-installs cron job if enabled
+# - Prevents accidental root-level backup
+# - Includes --uninstall flag
+################################################################################
+
+show_help() {
+  cat <<EOF
+
+📦 backup.sh — Git-aware directory backup using rsync with .gitignore
+
+USAGE:
+  ./backup.sh [OPTIONS]
+
+OPTIONS:
+  -s, --source DIR        Source directory to back up      (required)
+  -d, --destination DIR   Backup destination directory      (required)
+  -c, --cron              Enable cron job installation
+  -i, --interval MIN      Cron interval in minutes (default: 10)
+  -u, --uninstall         Remove installed cron job and exit
+  -h, --help              Show this help message
+
+EXAMPLES:
+  ./backup.sh -s . -d ~/backup/myapp -c -i 15
+  ./backup.sh --uninstall
+
+NOTES:
+- Respects .gitignore if present in source directory.
+- Uses rsync with --delete to sync exactly.
+- Cron job identified using '#localbackup-auto'
+
+EOF
+}
+
+#############################################
+# ========== PARSE ARGUMENTS ===============
+#############################################
+
+SOURCE_DIR=""
+BACKUP_DIR=""
+ENABLE_CRON=false
+INTERVAL=10
+UNINSTALL=false
+CRON_COMMENT="#localbackup-auto"
+
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    -s|--source)
+      SOURCE_DIR="$2"
+      shift 2
+      ;;
+    -d|--destination)
+      BACKUP_DIR="$2"
+      shift 2
+      ;;
+    -c|--cron)
+      ENABLE_CRON=true
+      shift
+      ;;
+    -i|--interval)
+      INTERVAL="$2"
+      shift 2
+      ;;
+    -u|--uninstall)
+      UNINSTALL=true
+      shift
+      ;;
+    -h|--help)
+      show_help
+      exit 0
+      ;;
+    *)
+      echo "❌ Unknown option: $1"
+      show_help
+      exit 1
+      ;;
+  esac
+done
+
+#############################################
+# ========== HANDLE UNINSTALL ==============
+#############################################
+
+if [[ "$UNINSTALL" == true ]]; then
+  crontab -l 2>/dev/null | grep -v "$CRON_COMMENT" | crontab -
+  echo "🧹 Cron job removed successfully."
+  exit 0
+fi
+
+#############################################
+# ========== VALIDATION & SAFETY ===========
+#############################################
+
+if [[ -z "$SOURCE_DIR" || -z "$BACKUP_DIR" ]]; then
+  echo "❌ Error: --source and --destination are required."
+  show_help
+  exit 1
+fi
+
+# Resolve relative paths like "." to absolute
+SOURCE_DIR="$(cd "$SOURCE_DIR" && pwd)"
+BACKUP_DIR="$(cd "$BACKUP_DIR" && pwd)"
+
+# Sanity check
+if [[ "$SOURCE_DIR" == "/" || "$SOURCE_DIR" == "" ]]; then
+  echo "🚫 Refusing to back up from root directory. Aborting."
+  exit 1
+fi
+
+mkdir -p "$BACKUP_DIR"
+
+#############################################
+# ========== RUN BACKUP ====================
+#############################################
+
+GITIGNORE_FILE="$SOURCE_DIR/.gitignore"
+EXCLUDE_FILE=$(mktemp)
+
+if [[ -f "$GITIGNORE_FILE" ]]; then
+  grep -vE '^\s*#|^\s*$' "$GITIGNORE_FILE" > "$EXCLUDE_FILE"
+else
+  echo "⚠️  No .gitignore found. Backing up everything."
+fi
+
+# Ensure final slashes
+SOURCE="${SOURCE_DIR%/}/"
+DEST="${BACKUP_DIR%/}/"
+
+echo "🔄 Backing up from $SOURCE to $DEST ..."
+rsync -a --delete --exclude-from="$EXCLUDE_FILE" "$SOURCE" "$DEST"
+rm -f "$EXCLUDE_FILE"
+echo "✅ Backup complete at $(date)"
+
+#############################################
+# ========== CRON JOB INSTALL ==============
+#############################################
+
+if [[ "$ENABLE_CRON" == true ]]; then
+  SCRIPT_PATH="$(realpath "$0")"
+  CRON_SCHEDULE="*/$INTERVAL * * * *"
+  
+  (crontab -l 2>/dev/null | grep -v "$CRON_COMMENT" ; \
+    echo "$CRON_SCHEDULE $SCRIPT_PATH -s \"$SOURCE_DIR\" -d \"$BACKUP_DIR\" -i $INTERVAL -c $CRON_COMMENT") | crontab -
+    
+  echo "🕒 Cron job installed (every $INTERVAL min)"
+fi

@@ -3,6 +3,7 @@ vim.keymap.set("n", "<leader>;", vim.cmd.Ex)
 vim.keymap.set("n", "<S-u>", "<C-r>+")
 
 vim.keymap.set("n", "<leader>v", "<cmd>vsplit<CR>")
+vim.keymap.set("n", "<leader>b", "<cmd>tabnext<CR>")
 
 vim.keymap.set("n", "<leader>h", "<cmd>split<CR>")
 
@@ -21,6 +22,10 @@ vim.keymap.set("n", "M", "Nzzzv")
 
 -- greatest remap ever
 vim.keymap.set("x", "<leader>p", [["_dP]])
+
+vim.keymap.set("n", "<leader>z", "za", { desc = "Toggle fold" })
+vim.keymap.set("n", "<leader>zo", "zR", { desc = "Open all folds" })
+vim.keymap.set("n", "<leader>zc", "zM", { desc = "Close all folds" })
 
 -- next greatest remap ever : asbjornHaland
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
@@ -53,3 +58,43 @@ vim.keymap.set("n", "<leader>csr", "<cmd>CellularAutomaton scramble<CR>");
 vim.keymap.set("n", "<leader><leader>", function()
     vim.cmd("so")
 end)
+
+vim.keymap.set("n", "gd", function()
+    local clients = vim.lsp.get_active_clients({ bufnr = 0 })
+    local position_encoding = clients[1] and clients[1].server_capabilities.positionEncoding or "utf-16"
+    local params = vim.lsp.util.make_position_params(0, position_encoding)
+
+    vim.lsp.buf_request(0, "textDocument/definition", params, function(err, result)
+        if err then
+            vim.notify("LSP definition error: " .. err.message, vim.log.levels.ERROR)
+            return
+        end
+
+        if not result or vim.tbl_isempty(result) then
+            vim.notify("No definition found", vim.log.levels.INFO)
+            return
+        end
+
+        local def = result[1] or result
+        local uri = def.uri or def.targetUri
+        local range = def.range or def.targetSelectionRange
+
+        if not uri then
+            vim.notify("No URI in definition result", vim.log.levels.WARN)
+            return
+        end
+
+        local fname = vim.uri_to_fname(uri)
+        vim.cmd("tabnew " .. fname)
+
+        if range then
+            local pos = { range.start.line + 1, range.start.character }
+            vim.api.nvim_win_set_cursor(0, pos)
+        end
+    end)
+end, opts)
+
+vim.keymap.set("n", "<leader>t", ":TestNearest<CR>", { silent = true })
+vim.keymap.set("n", "<leader>T", ":TestFile<CR>", { silent = true })
+vim.keymap.set("n", "<leader>a", ":TestSuite<CR>", { silent = true })
+vim.keymap.set("n", "<leader>l", ":TestLast<CR>", { silent = true })
